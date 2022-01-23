@@ -19,6 +19,13 @@ mongoose
     console.log(err);
   });
 
+app.get("/", async (req, res) => {
+  try {
+    res.status(200).json('hello user');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
  
 
 app.use(cors());
