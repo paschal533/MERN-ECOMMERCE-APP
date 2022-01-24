@@ -2,6 +2,9 @@ import { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { publicRequest } from "../requestMethods";
+import {
+  useHistory
+} from "react-router-dom";
 
 const Container = styled.div`
   width: 100vw;
@@ -57,6 +60,7 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+  const history = useHistory();
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [checkPassword, setCheckPassword] = useState('');
@@ -91,7 +95,7 @@ const Register = () => {
           <Input placeholder="email" onChange={(e) => setEmail(e.target.value)} />
           <Input placeholder="password"  type="password" onChange={(e) => setPassword(e.target.value)} />
           <Input placeholder="confirm password"  type="password" onChange={(e) => setCheckPassword(e.target.value)} />
-          {validation && <p style={{ color: red }}>validation</p>}
+          {validation && <p style={{ color: "red" }}>validation</p>}
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
